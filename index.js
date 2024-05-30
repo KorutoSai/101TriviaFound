@@ -107,7 +107,7 @@ app.get("/start", async (req, res) => {
         quesNum,
         quesAtt,
         answerList,
-        testName ,
+        testName , 
               
         answers: [(quizes[quesNum].correct_answer)]
       }
@@ -227,6 +227,7 @@ app.get("/startVehicle", async (req, res) => {
         score,
         quesNum,
         quesAtt,
+        answerList,
         testName ,
               
         answers: [(quizes[quesNum].correct_answer)]
@@ -284,6 +285,7 @@ app.get("/startVehicle", async (req, res) => {
           score,
           quesNum,
           quesAtt,
+          answerList,
           testName ,
                 
           answers: [(quizes[quesNum].correct_answer)]
@@ -342,6 +344,7 @@ app.get("/startVehicle", async (req, res) => {
             score,
             quesNum,
             quesAtt,
+            answerList,
             testName ,
                   
             answers: [(quizes[quesNum].correct_answer)]
@@ -400,6 +403,7 @@ app.get("/startVehicle", async (req, res) => {
               score,
               quesNum,
               quesAtt,
+              answerList,
               testName ,
                     
               answers: [(quizes[quesNum].correct_answer)]
