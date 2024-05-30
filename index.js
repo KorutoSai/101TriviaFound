@@ -21,7 +21,7 @@ let quesNum = 1;
 let quesAtt = 0;
 let quizes = [];
 
-let answerList = ""
+let answerList = ""; 
 
 
 
