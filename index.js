@@ -41,7 +41,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", async (req, res) => {
 
-
+  score = 0,
+  quesAtt = 0,
+  quizes = [],
+  answerList = ""
 
 
 
