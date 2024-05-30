@@ -1,0 +1,211 @@
+<%- include("partials/header.ejs") %>
+    <main>
+
+        <div class="container">
+
+            <div class="formBody py-5 my-2">
+
+
+
+
+
+
+
+                <!-- Logic container -->
+                <!-- if function to display form if there are less than 10 questions answered -->
+                <% if(quesAtt < 10) { %>
+
+                    <h2>
+                        <%=locals.testName%>
+                    </h2>
+
+                    <!-- Number of question container -->
+                    <% if(quesAtt>= 1){%>
+
+
+
+                        <p class="lead">
+                            Question <%=quesAtt%> / 10
+                        </p>
+
+
+
+                        <% }else{%>
+                            <p class="lead">
+                                Question 1 /10
+                            </p>
+
+
+                            <% } %>
+                                <!-- /Number of question container -->
+
+                                <!-- Score container -->
+                                <% if(score>= 1){%>
+
+                                    <p class="lead">
+                                        Score <%=score%> / 10
+
+
+
+
+                                            <% }else{%>
+                                                <p class="lead">
+                                                    Score 0/10
+                                                <p>
+
+
+                                                    <% } %>
+                                                        <!-- /Score container -->
+
+                                                        <!-- HTML form -->
+                                                        <div class="list">
+
+                                                            <!-- question container -->
+                                                            <h2 class="blockquote h3 questionMain">
+                                                                <%= question %>
+                                                                    </h1>
+                                                                    <!-- /question container -->
+
+
+                                                                    <form action="/post" method="post">
+
+                                                                        <input type="text" hidden id="hiddencontainer"
+                                                                            name="question" value="<%= question %>">
+
+
+
+
+                                                                        <div class="choices">
+
+
+                                                                            <div
+                                                                                class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+                                                                                <div
+                                                                                    class="list-group list-group-checkable d-grid gap-2 border-0">
+                                                                                    <input
+                                                                                        class="list-group-item-check pe-none"
+                                                                                        type="radio" name="q1"
+                                                                                        id="listGroupCheckableRadios1"
+                                                                                        value="<%= choicesShuffled[1] %>"
+                                                                                        checked="">
+                                                                                    <label
+                                                                                        class="list-group-item rounded-3 py-3 d-flex flex-column align-items-center"
+                                                                                        for="listGroupCheckableRadios1">
+                                                                                        <%= choicesShuffled[1] %>
+
+                                                                                    </label>
+
+                                                                                    <input
+                                                                                        class="list-group-item-check pe-none "
+                                                                                        type="radio" name="q1"
+                                                                                        id="listGroupCheckableRadios2"
+                                                                                        value="<%= choicesShuffled[0] %>">
+                                                                                    <label
+                                                                                        class="list-group-item rounded-3 py-3 d-flex flex-column align-items-center"
+                                                                                        for="listGroupCheckableRadios2">
+                                                                                        <%= choicesShuffled[0] %>
+
+                                                                                    </label>
+
+                                                                                    <input
+                                                                                        class="list-group-item-check pe-none"
+                                                                                        type="radio" name="q1"
+                                                                                        id="listGroupCheckableRadios3"
+                                                                                        value="<%= choicesShuffled[3] %>">
+                                                                                    <label
+                                                                                        class="list-group-item rounded-3 py-3 d-flex flex-column align-items-center"
+                                                                                        for="listGroupCheckableRadios3">
+                                                                                        <%= choicesShuffled[3] %>
+
+                                                                                    </label>
+
+
+                                                                                    <input
+                                                                                        class="list-group-item-check pe-none"
+                                                                                        type="radio" name="q1"
+                                                                                        id="listGroupCheckableRadios4"
+                                                                                        value="<%= choicesShuffled[2] %>">
+                                                                                    <label
+                                                                                        class="list-group-item rounded-3 py-3 d-flex flex-column align-items-center"
+                                                                                        for="listGroupCheckableRadios4">
+                                                                                        <%= choicesShuffled[2] %>
+
+                                                                                    </label>
+
+
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+
+                                                                        <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
+                                                                            <div class="d-grid gap-2">
+
+                                                                                <!-- Reset button -->
+                                                                                <a class="btn btn-outline-secondary"
+                                                                                    type="button" href="/reset">
+                                                                                    Reset</a>
+                                                                                <!-- Reset button -->
+                                                                                <!-- Submitbutton -->
+                                                                                <button class="btn btn-primary"
+                                                                                    type="submit"
+                                                                                    value="Submit">Submit</button>
+                                                                                <!-- Submitbutton -->
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                    </form>
+
+
+
+
+
+
+
+                                                        </div>
+                                                        <!-- /HTML form -->
+                                                        <!-- /if function to display form if there are less than 10 questions answered -->
+
+                                                        <!-- if function to display form if there are MORE THAN 10 questions answered -->
+
+                                                        <% }else{%>
+
+                                                            <div class="end">
+
+                                                                <h2>
+                                                                    <%=locals.testName%>
+                                                                </h2>
+                                                                <h3>Game over, your score is <%=score%> /10 </h3>
+                                                                <a class="btn btn-outline-secondary px-5" type="button"
+                                                                    href="/reset">
+                                                                    Reset</a>
+                                                            </div>
+
+                                                            <% }%>
+                                                                <!-- /if function to display form if there are MORE THAN 10 questions answered -->
+                                                                <!-- /Logic container -->
+
+                                                                <!-- Answer -->
+
+                                                                <% if(locals.answerList){%>
+                                                                    <p>
+                                                                        The answer to the previous question is
+                                                                        <b>"<%=locals.answerList%>"</b>
+                                                                    </p>
+                                                                    <% } else{%>
+                                                                        <p>
+
+                                                                        </p>
+                                                                        <% }%>
+
+                                                                            <!-- Answer -->
+
+
+            </div>
+
+
+    </main>
+    <%- include("partials/footer.ejs") %>

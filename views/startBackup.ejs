@@ -1,0 +1,214 @@
+<%- include("partials/header.ejs") %>
+    <main>
+
+        <div class="container">
+
+            <div class="formBody">
+                <H1> Tite</H1>
+
+
+
+                <!-- Reset button -->
+                <a href="/reset"> <button>Restart</button> </a>
+                <!-- /Reset button -->
+
+
+
+
+
+                <!-- Logic container -->
+                <!-- if function to display form if there are less than 10 questions answered -->
+                <% if(quesAtt < 10) { %>
+
+                    <!-- Score container -->
+                    <% if(score>= 1){%>
+
+                        <h3>
+                            <%=score%> / 10
+                        </h3>
+
+
+
+                        <% }else{%>
+                            <h3>
+                                0/10
+                            </h3>
+
+
+                            <% } %>
+                                <!-- /Score container -->
+
+                                <!-- question container -->
+                                <% if(quesAtt>= 1){%>
+
+                                    <p>
+                                        Question <%=quesAtt%> / 10
+                                    </p>
+
+
+
+                                    <% }else{%>
+                                        <p>
+                                            Question 1 /10
+                                        </p>
+
+
+                                        <% } %>
+                                            <!-- /question container -->
+
+                                            <!-- HTML form -->
+                                            <div class="list">
+
+
+                                                <h1>
+                                                    <%= question %>
+                                                </h1>
+
+                                                <form action="/post" method="post">
+
+                                                    <input type="text" hidden id="hiddencontainer" name="question"
+                                                        value="<%= question %>">
+
+
+                                                    <div class="choices">
+
+                                                        <div class="choice">
+                                                              <input type="radio" id="ch1" name="q1"
+                                                                value="<%= choicesShuffled[1] %>">
+                                                              <label for="ch1">
+                                                                <%= choicesShuffled[1] %>
+                                                            </label>
+                                                        </div>
+
+                                                        <br>
+
+                                                        <div class="choice">
+                                                              <input type="radio" id="ch2" name="q1"
+                                                                value="<%= choicesShuffled[0] %>" checked="checked">
+                                                              <label for="ch2">
+                                                                <%= choicesShuffled[0] %>
+                                                            </label>
+                                                        </div>
+                                                        <br>
+
+                                                        <div class="choice">
+                                                              <input type="radio" id="ch3" name="q1"
+                                                                value="<%= choicesShuffled[3] %>">
+                                                              <label for="ch3">
+                                                                <%= choicesShuffled[3] %>
+                                                            </label>
+                                                        </div>
+
+                                                        <br>
+
+
+                                                        <div class="choice">
+                                                              <input type="radio" id="ch4" name="q1"
+                                                                value="<%= choicesShuffled[2] %>">
+                                                              <label for="ch4">
+                                                                <%= choicesShuffled[2] %>
+                                                            </label>
+                                                        </div>
+                                                        <br>
+
+                                                    </div>
+
+
+                                                    <br>
+                                                    <input type="submit" value="Submit">
+
+
+                                                </form>
+
+
+                                                <form action="/post" method="post">
+                                                    <div
+                                                        class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+                                                        <div
+                                                            class="list-group list-group-checkable d-grid gap-2 border-0">
+                                                            <input class="list-group-item-check pe-none" type="radio"
+                                                                name="q1" id="listGroupCheckableRadios1"
+                                                                value="<%= choicesShuffled[1] %>" checked="">
+                                                            <label class="list-group-item rounded-3 py-3"
+                                                                for="listGroupCheckableRadios1">
+                                                                <%= choicesShuffled[1] %>
+
+                                                            </label>
+
+                                                            <input class="list-group-item-check pe-none" type="radio"
+                                                                name="q1" id="listGroupCheckableRadios2"
+                                                                value="<%= choicesShuffled[0] %>">
+                                                            <label class="list-group-item rounded-3 py-3"
+                                                                for="listGroupCheckableRadios2">
+                                                                <%= choicesShuffled[0] %>
+
+                                                            </label>
+
+                                                            <input class="list-group-item-check pe-none" type="radio"
+                                                                name="q1" id="listGroupCheckableRadios3"
+                                                                value="<%= choicesShuffled[3] %>">
+                                                            <label class="list-group-item rounded-3 py-3"
+                                                                for="listGroupCheckableRadios3">
+                                                                <%= choicesShuffled[3] %>
+
+                                                            </label>
+
+
+                                                            <input class="list-group-item-check pe-none" type="radio"
+                                                                name="q1" id="listGroupCheckableRadios4"
+                                                                value="<%= choicesShuffled[2] %>">
+                                                            <label class="list-group-item rounded-3 py-3"
+                                                                for="listGroupCheckableRadios4">
+                                                                <%= choicesShuffled[2] %>
+
+                                                            </label>
+
+
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <input type="submit" value="Submit">
+
+                                                </form>
+
+
+
+
+
+
+                                            </div>
+                                            <!-- /HTML form -->
+                                            <!-- /if function to display form if there are less than 10 questions answered -->
+
+                                            <!-- if function to display form if there are MORE THAN 10 questions answered -->
+
+                                            <% }else{%>
+
+                                                <h1>Game over, your score is <%=score%> /10 </h1>
+
+
+                                                <% }%>
+                                                    <!-- /if function to display form if there are MORE THAN 10 questions answered -->
+                                                    <!-- /Logic container -->
+
+                                                    <!-- Answer -->
+
+                                                    <% if(locals.answerList){%>
+                                                        <p>
+                                                            The answer to the previous question is
+                                                            <%=locals.answerList%>
+                                                        </p>
+                                                        <% } else{%>
+                                                            <p>
+
+                                                            </p>
+                                                            <% }%>
+
+                                                                <!-- Answer -->
+
+
+            </div>
+
+
+    </main>
+    <%- include("partials/footer.ejs") %>
