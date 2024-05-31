@@ -20,7 +20,6 @@ let score = 0;
 let quesNum = 1;
 let quesAtt = 0;
 let quizes = [];
-let testName = "";
 
 let answerList = ""; 
 
@@ -86,7 +85,7 @@ app.get("/start", async (req, res) => {
    var  wrongAnswer1 = (quizes[quesNum].incorrect_answers[0])
    var  wrongAnswer2 = (quizes[quesNum].incorrect_answers[1])
    var  wrongAnswer3 = (quizes[quesNum].incorrect_answers[2])
-   
+   var testName = "History"
  
    //array to put coices to randomize
    var choices = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3 ]
@@ -111,7 +110,7 @@ app.get("/start", async (req, res) => {
         quesNum,
         quesAtt,
         answerList,
-        testName: (quizes[quesNum].category),
+        testName , 
               
         answers: [(quizes[quesNum].correct_answer)]
       }
@@ -119,9 +118,8 @@ app.get("/start", async (req, res) => {
 
   } catch (error) {
 
-    res.render("index.ejs");
+
     console.log("error")
-    
     }
   });
 
@@ -149,7 +147,7 @@ app.get("/startGeo", async (req, res) => {
    var  wrongAnswer1 = (quizes[quesNum].incorrect_answers[0])
    var  wrongAnswer2 = (quizes[quesNum].incorrect_answers[1])
    var  wrongAnswer3 = (quizes[quesNum].incorrect_answers[2])
-   
+   var testName = "Geography"
  
    //array to put coices to randomize
    var choices = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3 ]
@@ -172,7 +170,7 @@ app.get("/startGeo", async (req, res) => {
         quesNum,
         quesAtt,
         answerList,
-        testName :(quizes[quesNum].category), 
+        testName ,
 
         answers: [(quizes[quesNum].correct_answer)]
       }
@@ -180,9 +178,8 @@ app.get("/startGeo", async (req, res) => {
 
   } catch (error) {
 
-    res.render("index.ejs");
+
     console.log("error")
-    
     }
   });
 
@@ -211,7 +208,7 @@ app.get("/startVehicle", async (req, res) => {
    var  wrongAnswer1 = (quizes[quesNum].incorrect_answers[0])
    var  wrongAnswer2 = (quizes[quesNum].incorrect_answers[1])
    var  wrongAnswer3 = (quizes[quesNum].incorrect_answers[2])
-   
+   var testName = "Vehicles"
  
    //array to put coices to randomize
    var choices = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3 ]
@@ -234,7 +231,7 @@ app.get("/startVehicle", async (req, res) => {
         quesNum,
         quesAtt,
         answerList,
-        testName :(quizes[quesNum].category),
+        testName ,
               
         answers: [(quizes[quesNum].correct_answer)]
       }
@@ -242,9 +239,8 @@ app.get("/startVehicle", async (req, res) => {
 
   } catch (error) {
 
-    res.render("index.ejs");
+
     console.log("error")
-   
     }
   });
 
@@ -270,7 +266,7 @@ app.get("/startVehicle", async (req, res) => {
      var  wrongAnswer1 = (quizes[quesNum].incorrect_answers[0])
      var  wrongAnswer2 = (quizes[quesNum].incorrect_answers[1])
      var  wrongAnswer3 = (quizes[quesNum].incorrect_answers[2])
-     
+     var testName = "General Science"
    
      //array to put coices to randomize
      var choices = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3 ]
@@ -293,7 +289,7 @@ app.get("/startVehicle", async (req, res) => {
           quesNum,
           quesAtt,
           answerList,
-          testName :(quizes[quesNum].category),
+          testName ,
                 
           answers: [(quizes[quesNum].correct_answer)]
         }
@@ -301,9 +297,8 @@ app.get("/startVehicle", async (req, res) => {
   
     } catch (error) {
   
-      res.render("index.ejs");
+  
       console.log("error")
-    
       }
     });
 
@@ -330,7 +325,7 @@ app.get("/startVehicle", async (req, res) => {
        var  wrongAnswer1 = (quizes[quesNum].incorrect_answers[0])
        var  wrongAnswer2 = (quizes[quesNum].incorrect_answers[1])
        var  wrongAnswer3 = (quizes[quesNum].incorrect_answers[2])
-      
+       var testName = "Anime and Manga"
      
        //array to put coices to randomize
        var choices = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3 ]
@@ -353,7 +348,7 @@ app.get("/startVehicle", async (req, res) => {
             quesNum,
             quesAtt,
             answerList,
-            testName :(quizes[quesNum].category),
+            testName ,
                   
             answers: [(quizes[quesNum].correct_answer)]
           }
@@ -361,9 +356,8 @@ app.get("/startVehicle", async (req, res) => {
     
       } catch (error) {
     
-        res.render("index.ejs");
+    
         console.log("error")
-     
         }
       });
 
@@ -390,7 +384,7 @@ app.get("/startVehicle", async (req, res) => {
          var  wrongAnswer1 = (quizes[quesNum].incorrect_answers[0])
          var  wrongAnswer2 = (quizes[quesNum].incorrect_answers[1])
          var  wrongAnswer3 = (quizes[quesNum].incorrect_answers[2])
-         
+         var testName = "General Information"
        
          //array to put coices to randomize
          var choices = [correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3 ]
@@ -413,8 +407,7 @@ app.get("/startVehicle", async (req, res) => {
               quesNum,
               quesAtt,
               answerList,
-              testName :(quizes[quesNum].category),
-              
+              testName ,
                     
               answers: [(quizes[quesNum].correct_answer)]
             }
@@ -422,9 +415,8 @@ app.get("/startVehicle", async (req, res) => {
       
         } catch (error) {
       
-          res.render("index.ejs");
+      
           console.log("error")
-         
           }
         });
 
@@ -488,11 +480,10 @@ app.get("/startVehicle", async (req, res) => {
       res.redirect('/start' )
 
 
-      res.render("index.ejs");
-      
+    
     } catch (error) {
 
-res.render("index.ejs");   
+    
 console.log("error")
 }
 
@@ -505,27 +496,21 @@ console.log("error")
     
    
     //to reset counter
-  
+    if (score > 0 && quesNum > 0){
    
       score = 0,
       quesAtt = 0,
       quizes = [],
-      answerList = "",
-      testName = ""
+      answerList = ""
       
-  
-
+    }
 
     try{
     res.render("index.ejs");
-    console.log("reset attempt")
- 
     } catch (error) {
 
-      res.render("index.ejs");
+    
       console.log("error")
-      console.log("reset attempt failed, try again")
-
       }
 
   });
